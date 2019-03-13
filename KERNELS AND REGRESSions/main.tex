@@ -1,0 +1,108 @@
+
+\documentclass{beamer}
+
+\usetheme{Copenhagen}
+
+\title{Regression and Kernel}
+\subtitle{EE1390- Intro to AI and ML}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+
+\author{
+ Sadiq -  \
+\texttt{EE18BTECH11051}
+\and \\
+ Nawaz -  \
+\texttt{EE18BTECH11052}
+}
+\institute{IIT HYDERABAD}
+\date{March 11, 2019}
+
+\subject{JEE questions solving using python}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Regression and Kernels}
+\begin{itemize}
+    \item Kernel regressions are weighted average estimators that use kernel functions as weights
+    \item Kernel regression is a non-parametric technique in statistics to estimate the conditional expectation of a random variable.
+    
+\end{itemize}
+  
+\end{frame}
+
+ 
+\begin{frame}{Regressions and Kernels}
+  We consider the approximation of the regression function in terms of a set of basis functions \ $\{  h_{m}(x)  \}, m = 1,2,3....,M:$
+  \begin{equation}
+      f(x) = \sum_{m=1}^{M} \beta_{m} h_{m}(x) + \beta_{0}
+  \end{equation}
+ To estimate \beta \ and \  $\beta_{0}$  we   minimize
+ \begin{equation}
+     H(\beta,\beta_{0}) = \sum_{i=1}^{N} V(y_{i} - f(x_{i})) + \frac{\lambda}{2} \sum_{}^{} {\beta_{m}}^2
+     \end{equation}
+     For some general error measure $V(r)$. For any choice of $V(r)$ , the solution $\hat{f}(x) = \sum_{}^{} \hat{\beta_{m}}  h_{m}(x) + \hat{\beta_{0}}$ has the form
+     \\  $\hat{f}(x)$ = \sum_{i=1}^{N} \hat{a_{i}} K(x,x_{i})
+\end{frame}
+
+ 
+
+\begin{frame}{Solution}
+Where $K(x,y) = \sum_{m =1}^{M} h_{m}(x) h_{m}(y)$
+
+We estimate $\beta$ by minimizing the penalized least square criterion 
+\begin{equation}
+    H(\beta) =  (\mathbf{y - H\beta})^\intercal(\mathbf{y - H\beta}) + \lambda ||\beta||^2
+\end{equation}
+The solution is 
+\begin{equation}
+\hat{y} = \mathbf{H}\hat{\beta}
+\end{equation}
+With $\hat{\beta}$ is determined by
+\begin{equation}
+    -\mathbf{H}^\intercal(y-\mathbf{H}\hat{\beta}) + \lambda\hat{\beta} = 0
+\end{equation}
+On solving this we can get
+\begin{equation}
+    \mathbf{H}\hat{\beta} = {(\mathbf{H}\mathbf{H}^\intercal + \lambda\mathbf{I})}^{-1}\mathbf{HH}^\intercal y
+\end{equation}
+\end{frame}
+
+\begin{frame}{Solution}
+Here the N X N matrix $\mathbf{HH}^\intercal$ is the inner product of the observations $i$,$i$'.
+So $\mathbf{HH}^\intercal$ can be written as
+\begin{equation}
+\{ \mathbf{HH}^\intercal \}_{ i , i' } = K(x_{i},x_{i'})    
+\end{equation}
+It is easy to show that the predicted values at an arbitrary x satisfy
+\begin{equation}
+    \hat{f(x)} = \mathbf{h(x)}^\intercal \beta
+               = \sum_{i=1}^{N} \hat{\alpha}_{i} K(x_{i},x_{i'})
+\end{equation}
+Where $\hat{\alpha_{i}} =  {(\mathbf{H}\mathbf{H}^\intercal + \lambda\mathbf{I})}^{-1} y $
+
+\end{frame}
+
+ 
+\begin{frame}{Final Slide}
+\begin{center}
+    THANK YOU
+\end{center}
+    
+\end{frame}
+    
+
+\end{document}
+
+
